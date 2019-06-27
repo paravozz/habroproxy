@@ -52,4 +52,4 @@ class TradeMarkifyHTMLParser:
             if tag.contents:
                 tag.contents = self._transform_tag_content(tag.contents)
 
-        return self._soup.prettify(formatter=None)
+        return self._soup

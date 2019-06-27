@@ -7,7 +7,10 @@ from proxier.parsers import TradeMarkifyHTMLParser
 def simple_html_markup():
     return '<html>' \
            '<head><title>В этом слове девять букв</title></head>' \
-           '<body><span>Cловцо из шести букофф</span></body>' \
+           '<body>' \
+           '<span>Cловцо из шести букофф +40</span>' \
+           '<a href="https://habr.com/test/url/">шиесть</a>' \
+           '</body>' \
            '</html>'
 
 
@@ -25,7 +28,10 @@ def test_parser(parser, simple_html_markup):
 
     expected_markup = '<html>' \
                       '<head><title>В этом слове девять™ букв</title></head>' \
-                      '<body><span>Cловцо™ из шести букофф™</span></body>' \
+                      '<body>' \
+                      '<span>Cловцо™ из шести букофф™ +40</span>' \
+                      '<a href="http://127.0.0.1:6969/test/url/">шиесть™</a>' \
+                      '</body>' \
                       '</html>'
 
     assert str(new_markup) == str(expected_markup)
