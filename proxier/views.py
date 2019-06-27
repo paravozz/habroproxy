@@ -9,7 +9,8 @@ def trademarkify_habr_page(request, path):
     remote_url = 'http://habr.ru/' + path
     response = proxy_view(request, remote_url)
 
-    parser = TradeMarkifyHTMLParser(response.content)
-    response.content = parser.trademarkify()
+    if 'text/html' in response['content-type']:  # чтоб зря не парсить всякое
+        parser = TradeMarkifyHTMLParser(response.content)
+        response.content = parser.trademarkify()
 
     return response
