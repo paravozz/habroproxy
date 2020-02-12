@@ -3,7 +3,7 @@ attrs==19.1.0
 beautifulsoup4==4.7.1
 certifi==2019.6.16
 chardet==3.0.4
-Django==2.2.2
+Django==2.2.10
 django-proxy==1.1.0
 html5lib==1.0.1
 idna==2.8
